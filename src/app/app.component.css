@@ -1,0 +1,17 @@
+
+
+.playbtn {
+    height: 45px;
+    width: 45px;
+    background-color: #6b6868;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0;
+    margin-top: 243px;
+    margin-left: -464px;
+    position: absolute;
+    cursor: pointer;
+}
+
+
+

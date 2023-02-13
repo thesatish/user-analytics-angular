@@ -19,7 +19,8 @@ export class AppComponent {
 
   @ViewChild('ssVideo', { static: true }) ssVideo!: ElementRef;
 
-  ngOnInit() { }
+  ngOnInit() { this.playPause() }
+
 
   playPause() {
     let video: HTMLVideoElement = this.ssVideo.nativeElement;
@@ -27,22 +28,31 @@ export class AppComponent {
     this.videoDuration = video.duration;
     
     video.addEventListener("timeupdate", function () {
-      if (video.currentTime === video.duration) {
-        video.pause();
-        component.stopTimer();
-        // console.log(video.currentTime);
-        component.totalTime();
+      if (video.currentTime < video.duration) {
+          if(video.paused){
+            video.play();
+            component.startTimer();
+          }
+          else {
+            video.pause();
+            component.stopTimer();
+            // component.totalTime();
+          }
+      } else{
+      video.pause();
+      component.stopTimer();
+      // component.totalTime();
       }
     });
 
-    if (video.paused) {
-      video.play();
-      this.startTimer();
-    } else {
-      video.pause();
-      this.stopTimer();
-      // this.totalTime()
-    }
+    // if (video.paused) {
+    //   video.play();
+    //   this.startTimer();
+    // } else {
+    //   video.pause();
+    //   this.stopTimer();
+    //   // this.totalTime()
+    // }
   }
 
   displayStyle = "none";
@@ -71,7 +81,7 @@ export class AppComponent {
 
   startTimer() {
     this.timerId = setInterval(() => {
-      this.timer = this.timer + 1
+      this.timer = this.timer + 1;
       console.log(Math.floor(this.timer / 60));
     }, 1000);
   }
@@ -84,3 +94,4 @@ export class AppComponent {
   }
 
 }
+

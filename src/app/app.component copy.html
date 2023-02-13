@@ -10,24 +10,22 @@
         </button>
       </div>
       <div class="modal-body">
-        <!-- <iframe #ssVideo src="https://eupheus-perfectice.s3.ap-south-1.amazonaws.com/English/Grade+1/WOW!+English_Book+1_Ch+1_At+the+Beach.mp4" width="465" height="315" frameborder="0" >
+        <!-- <iframe #video src="https://eupheus-perfectice.s3.ap-south-1.amazonaws.com/English/Grade+1/WOW!+English_Book+1_Ch+1_At+the+Beach.mp4" width="465" height="315" frameborder="0" >
         </iframe> -->
 
-        <!-- <a (click)="playPause()">
-          <video width="465" height="315"   #ssVideo controls>
-            <source src="https://eupheus-perfectice.s3.ap-south-1.amazonaws.com/English/Grade+1/WOW!+English_Book+1_Ch+1_At+the+Beach.mp4" type="video/mp4">
-          </video>
-        </a> -->
-
-        <video width="465" height="315"  #ssVideo controls>
+        <video width="465" height="315"   #ssVideo>
           <source src="https://eupheus-perfectice.s3.ap-south-1.amazonaws.com/English/Grade+1/WOW!+English_Book+1_Ch+1_At+the+Beach.mp4" type="video/mp4">
         </video>
 
-        <a class="playbtn" (click)="playPause()"></a>
-        <button class="btn btn-warning" (click)="totalTime()">Total</button>
+        <a class="playbtn" (click)="switchFunction()"></a>
+        <!-- <a class="playbtn" (click)="stopTimer()"></a> -->
+        <!-- <a class="playbtn" (click)="stopTimer()"></a> -->
+        <button (click)="totalTime()">Total</button>
+        <button (click)="playPause()"> Play/Pause </button>
       </div>
     </div>
   </div>
 </div>
+<!-- <button (click)="totalTime()">Total</button> -->
+
 <p>Duration in Minute: {{ playTime }}</p>
-<p>percentage : {{ timeInPercent }} %</p>
